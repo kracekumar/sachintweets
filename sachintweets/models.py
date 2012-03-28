@@ -36,8 +36,8 @@ class Tweets(Base):
     username = Column(String, nullable=False)
     inserted_at = Column(DateTime, default=datetime.now, nullable=False)
 
-    def __init__(self, sid, text, retweet_count, location, uid, tid, \
-                 created_at, username, inserted_at):
+    def __init__(self, text, retweet_count, location, uid, tid, \
+                 created_at, username):
         self.text = text
         self.retweet_count = retweet_count
         self.location = location
