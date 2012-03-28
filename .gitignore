@@ -3,4 +3,4 @@
 *.swp
 dev/*
 sachintweets/config.py
-
+*.log

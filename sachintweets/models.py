@@ -1,4 +1,5 @@
 from sqlalchemy import create_engine, Column, BigInteger, String, Sequence, Date
+from sqlalchemy import DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from config import db_username, db_password, db_name, db_server
