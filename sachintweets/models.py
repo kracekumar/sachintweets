@@ -29,7 +29,7 @@ class Tweets(Base):
     sid = Column(BigInteger, Sequence('sid_seq'), primary_key = True)
     text = Column(String, nullable=False)
     retweet_count = Column(BigInteger, nullable=False)
-    location = Column(String, nullable=False)
+    location = Column(String)
     uid = Column(BigInteger, nullable=False)
     tid = Column(BigInteger, nullable=False)
     created_at = Column(String, nullable=False)
