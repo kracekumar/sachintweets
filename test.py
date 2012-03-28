@@ -4,6 +4,7 @@ import json
 import zmq
 from multiprocessing import Process
 from logbook import FileHandler, catch_exceptions
+from twitter import username, password
 
 ####################################### Log book setup #########################
 log_handler = FileHandler('collector.log')
@@ -31,7 +32,7 @@ def store_live_tweets():
     track = ['sachin', 'sachinism', 'Sachin', 'Sachinism', 'tendulkar', 'Tendulkar', 'sachintendulkar','SachinTendulkar']
     while True:
         r = requests.post('https://stream.twitter.com/1/statuses/filter.json',
-                    data={'track': track}, auth=('kracetheking', '__import python__'))
+                    data={'track': track}, auth=(username, password))
         for line in r.iter_lines():
             if line:
                 send.send(line)
