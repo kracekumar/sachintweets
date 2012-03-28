@@ -38,7 +38,6 @@ class Tweets(Base):
 
     def __init__(self, sid, text, retweet_count, location, uid, tid, \
                  created_at, username, inserted_at):
-        self.sid = sid
         self.text = text
         self.retweet_count = retweet_count
         self.location = location
@@ -46,7 +45,6 @@ class Tweets(Base):
         self.tid = tid
         self.created_at = created_at
         self.username = username
-        self.inserted_at = insert_at
 
     def __repr__(self):
         return"<Tweet: %s by %s>"%(self.text, self.username)

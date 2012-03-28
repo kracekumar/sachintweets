@@ -5,7 +5,6 @@ import zmq
 from multiprocessing import Process
 from logbook import FileHandler, catch_exceptions
 from sachintweets.models import Tweets, db_session
-from datetime import datetime
 
 ####################################### Log book setup #########################
 log_handler = FileHandler('collector.log')
@@ -25,8 +24,7 @@ def worker():
                   uid = d['user']['id'], tid = d['id'],\
                   created_at = d['user']['created_at'],\
                   username = d['user']['name'],\
-                  retweet_count = d['retweet_count'],
-                  inserted_at = datetime.now())
+                  retweet_count = d['retweet_count'])
         db_session.add(t)
         db_session.commit()
         
