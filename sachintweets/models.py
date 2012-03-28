@@ -40,7 +40,7 @@ class Tweets(Base):
                  created_at, username):
         self.text = text
         self.retweet_count = retweet_count
-        self.location = location
+        self.location = location or 'Empty'
         self.uid = uid
         self.tid = tid
         self.created_at = created_at
