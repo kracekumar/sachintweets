@@ -4,11 +4,17 @@ import json
 import zmq
 from multiprocessing import Process
 from logbook import FileHandler, catch_exceptions
-from sachintweets.models import Tweets, db_session
+from sachintweets.models import connect, MongoException
 from twitter import username, password
+
 ####################################### Log book setup #########################
 log_handler = FileHandler('collector.log')
 log_handler.push_application()
+
+###################################### Mongodb connection ######################
+db =  connect() 
+if db:
+    tweet = db.tweet
 
 
 ##################################### worker which pulls tweets ################
@@ -20,13 +26,20 @@ def worker():
     while 1:
         [address, d] = receiver.recv_multipart()
         d = json.loads(d)
-        t = Tweets(text = d['text'], location = d['user']['location'], \
-                  uid = d['user']['id'], tid = d['id'],\
-                  created_at = d['user']['created_at'],\
-                  username = d['user']['name'],\
-                  retweet_count = d['retweet_count'])
-        db_session.add(t)
-        db_session.commit()
+        try:
+            if tweet:
+                tweet.insert({'text': d['text'],\
+                  'location': d['user']['location'], \
+                  'uid': d['user']['id'], 'tid': d['id'],\
+                  'created_at': d['user']['created_at'],\
+                  'username': d['user']['name'],\
+                  'retweet_count': d['retweet_count']})
+        except TypeError as e:
+            log_handler.write(MongoException(e))
+        except ValueError as e:
+            log_handler.write(MongoException(e))
+        
+        
         
 
 def store_live_tweets():
