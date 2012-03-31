@@ -5,4 +5,6 @@ dev/*
 sachintweets/config.py
 *.log
 twitter.py
-
+*.lock
+*.out
+build/*

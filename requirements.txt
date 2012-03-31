@@ -1,5 +1,6 @@
 Flask
 Jinja2
 pyzmq
-SQLAlchemy
-
+pymongo
+requests
+logbook
