@@ -20,9 +20,9 @@ LOCK_FILE = 'collector.lock'
 
 ###################################### core ####################################
 def collect_tweets():
-    try:
-        track = ['sachin', 'sachinism', 'Sachin', 'Sachinism', 'tendulkar', 'Tendulkar', 'sachintendulkar','SachinTendulkar']
-        while True:
+    while True:
+        try:
+            track = ['sachin', 'sachinism', 'Sachin', 'Sachinism', 'tendulkar', 'Tendulkar', 'sachintendulkar','SachinTendulkar']
             r = requests.post('https://stream.twitter.com/1/statuses/filter.json',
                     data={'track': track}, auth=(username, password))
             for line in r.iter_lines():
@@ -31,8 +31,8 @@ def collect_tweets():
                     print "====sent====="
             else:
                 time.sleep(60)
-    except Exception as e:
-        log_handler.write(e.message)
+        except Exception as e:
+            log_handler.write(e.message)
 
 if __name__ == '__main__':
     with catch_exceptions():
