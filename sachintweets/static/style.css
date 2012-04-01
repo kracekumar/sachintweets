@@ -1,0 +1,32 @@
+html{
+    background: url(Master_Blaster_at_work.jpg);
+/*    background-repeat: repeat-y;
+    background-quantity: 2;*/
+    background-size: 425px;
+    display: block;
+    }
+body{
+    width: 940px;
+    font-size: 16px;
+    color: #333;
+    line-height: 18px;
+    text-align: center;
+    font-family: 'Droid Sans';
+    display: block;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
+
+}
+
+.content
+{
+    background-color: white;
+    color: #333;
+    line-height: 18px;
+    text-align: center;
+    font-family: 'Droid Sans';
+    display: block;
+    height: 100%;
+}

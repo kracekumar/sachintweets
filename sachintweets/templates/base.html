@@ -4,4 +4,23 @@
     <title> Welcome to sachintweets.in | Real time twitter updates about Master 
     blaster, GOD of cricket - Sachin Tendulkar | code by Kracekumar - one among
     billions of sachin fan </title>
-    <meta name="keywords"
+    <link rel="stylesheet" href={{ url_for('static', filename='bootstrap.css') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
+</head>
+<body>
+    {% block menu %}
+        {% include 'inc/menu.html' %}
+    {% endblock %}
+    <section class="content">
+        {% block header %}
+        {% endblock %}
+        {% block content %}
+        {% endblock %}
+        {% block js %}
+            <!-- All JS stuff at the end of the page -->
+        {% endblock %}
+        {% block footer %}
+        {% endblock %}
+    </section>
+</body>
+</html>
