@@ -31,8 +31,8 @@ socket.setsockopt(zmq.SUBSCRIBE, "")
 
 
 def store_live_tweets():
-    try:
-        while True:
+    while True:
+        try:
             d = json.loads(socket.recv())
             if tweet:
                 tweet.insert({'text': d['text'],\
@@ -42,10 +42,8 @@ def store_live_tweets():
                 'username': d['user']['name'],\
                 'retweet_count': d['retweet_count']})
                 print "%s ===added to db===", time.ctime()
-            else:
-                time.sleep(60)
-    except Exception as e:
-        log_handler.write(e.message)
+        except Exception as e:
+            log_handler.write(e.message)
 
 if __name__ == '__main__':
     with catch_exceptions():
