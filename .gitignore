@@ -8,3 +8,4 @@ twitter.py
 *.lock
 *.out
 build/*
+*.pid

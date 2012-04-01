@@ -1,9 +1,11 @@
 from flask import render_template, jsonify
 from sachintweets import app
+from models import get_top_10_tweets
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    tweets = get_top_10_tweets()
+    return render_template('index.html', tweets = tweets)
 
 @app.route('/realtime')
 def real_time_tweets():

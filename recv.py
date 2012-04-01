@@ -40,7 +40,9 @@ def store_live_tweets():
                 'uid': d['user']['id'], 'tid': d['id'],\
                 'created_at': d['user']['created_at'],\
                 'username': d['user']['name'],\
-                'retweet_count': d['retweet_count']})
+                'retweet_count': d['retweet_count'],\
+                'screen_name': d['user']['screen_name'],\
+                'profile_image_url': d['user']['profile_image_url']})
                 print "%s ===added to db===", time.ctime()
         except Exception as e:
             log_handler.write(e.message)

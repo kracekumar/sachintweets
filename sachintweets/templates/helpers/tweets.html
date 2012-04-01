@@ -1,0 +1,20 @@
+{% macro render_table(tweets = None) %}
+    {% if tweets %}
+        <table class="table table-bordered table-striped"> 
+        <thead>
+            <tr>
+                <th> Username </th>
+                <th> Tweet </th>
+                <th> Retweet Count </th>
+            </tr>
+        </thead>
+        {% for tweet in tweets %}
+            <tr>
+                <td> {{ tweet['username'] }} </td>
+                <td> {{ tweet['text'] }} </td>
+                <td> {{ tweet['retweet_count'] }} </td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+{% endmacro %}

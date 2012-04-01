@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
+{% from 'helpers/tweets.html' import render_table %}
 {% block content %}
      welcome to sachin tweets.in 
-
+     Top 10 tweets about Master Blaster with us 
+     {{ render_table(tweets = tweets) }}
+     
 {% endblock %}
