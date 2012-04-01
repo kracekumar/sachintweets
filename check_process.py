@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 from os import system
+import time
 """
     This file is intended as cron job to check whether collector.py and recv.py
     is running, if not start collector.py or recv.py 
@@ -14,13 +15,13 @@ def check():
             pass
     except:
         system("nohup python2.7 collector.py >> collector.out &")
-        print "===started collector.py==="
+        print "%s ===started collector.py==="%time.ctime()
     try:
         with open(RECV_LOCK_FILE) as f:
             pass
     except:
         system("nohup python2.7 recv.py >> recv.out &")
-        print "===started recv.py==="
+        print "%s ===started recv.py==="%time.ctime()
 
 
 if __name__ == "__main__":
