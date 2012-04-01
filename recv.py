@@ -41,7 +41,7 @@ def store_live_tweets():
                 'created_at': d['user']['created_at'],\
                 'username': d['user']['name'],\
                 'retweet_count': d['retweet_count']})
-                print "===added to db===", d
+                print "%s ===added to db===", time.ctime()
             else:
                 time.sleep(60)
     except Exception as e:

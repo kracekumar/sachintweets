@@ -13,13 +13,13 @@ def check():
         with open(COLLECTOR_LOCK_FILE) as f:
             pass
     except:
-        system("nohup python2.7 collector.py &")
+        system("nohup python2.7 collector.py >> collector.out &")
         print "===started collector.py==="
     try:
         with open(RECV_LOCK_FILE) as f:
             pass
     except:
-        system("nohup python2.7 recv.py &")
+        system("nohup python2.7 recv.py >> recv.out &")
         print "===started recv.py==="
 
 

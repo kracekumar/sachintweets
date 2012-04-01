@@ -7,12 +7,12 @@ def index():
 
 @app.route('/realtime')
 def real_time_tweets():
-    context = zmq.Context(1)
-    receiver = context.socket(zmq.SUB)
-    receiver.connect("tcp://127.0.0.1:9999")
-    receiver.setsockopt(zmq.SUBSCRIBE, "t")
+    context = zmq.Context()
+    socket = context.socket(zmq.SUB)
+    socket.connect("tcp://*:6789")
+    socket.setsockopt(zmq.SUBSCRIBE, "")
     while 1:
-        [address, d] = receiver.recv_multipart()
+        d = socket.recv() 
         d = json.loads(d)
         return jsonify(text = d['text'], created_at = d['user']['created_at'],\
                        username = d['user']['name'],

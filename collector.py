@@ -25,10 +25,10 @@ def collect_tweets():
             track = ['sachin', 'sachinism', 'Sachin', 'Sachinism', 'tendulkar', 'Tendulkar', 'sachintendulkar','SachinTendulkar']
             r = requests.post('https://stream.twitter.com/1/statuses/filter.json',
                     data={'track': track}, auth=(username, password))
-            for line in r.iter_lines():
+            for line in r.iter_lines(chunk_size=2048):
                 if line:
                     socket.send(line)
-                    print "====sent====="
+                    print "%s ====sent====="%time.ctime()
             else:
                 time.sleep(60)
         except Exception as e:
