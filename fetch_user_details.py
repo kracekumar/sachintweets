@@ -28,7 +28,7 @@ def fetch_user_details():
             r = requests.get("http://api.twitter.com/1/statuses/show/%d.json"\
             %(t['tid']))
             d = json.loads(r.content)
-            tweet.update({'tid': d['id']},{'$set': {
+            tweet.update({'tid': t['tid']},{'$set': {
             'screen_name': d['user']['screen_name'],\
             'profile_image_url': d['user']['profile_image_url']}})
             print "%s ===updated to db=== %d", time.ctime(), t['tid']
