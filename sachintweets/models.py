@@ -28,7 +28,6 @@ def get_top_tweets(limit = 20):
     check = set()
     print "start"
     for t in top_tweets:
-        print "inside: %s", t['text']
         if len(check) == limit:
             break
         else:
