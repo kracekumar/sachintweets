@@ -44,7 +44,7 @@ def get_all_tweets(limit=20, skip=0):
     to_return = []
     for t in tweets:
         to_return.append(t)
-    return t
+    return to_return
 
 def get_total_tweets():
     db = connect()
