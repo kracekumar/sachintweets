@@ -10,13 +10,10 @@ def stream_template(template_name, **context):
     rv.enable_buffering(5)
     return rv
 
-def test_stream():
-    for x in xrange(30):
-        yield str(x) + "<br/>"
 ################################################# func to URL ##################
 @app.route('/')
 def index():
-    tweets = get_top_tweets()
+    tweets = get_top_tweets(limit=25)
     return render_template('index.html', tweets = tweets)
 
 @app.route('/tweets/<int:page_no>/')
