@@ -28,6 +28,16 @@ def start_server(pid):
     print command
     local(command)
 
+def restart_server():
+    try:
+        with open('.pid', 'r') as f:
+            pid = int(f.readline())
+            local("kill -HUP %d"%pid)
+    except IOError:
+        print "pid file not found"
+    except:
+        print "unable to restart"
+        
 
 def push_to_github():
     local("git push -u origin master")
