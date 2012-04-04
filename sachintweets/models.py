@@ -25,17 +25,18 @@ def get_top_tweets(limit = 20):
     db = connect()
     top_tweets = db.tweet.find().sort('retweet_count', -1)#descending order
     to_return = []
-    check = set()
+    check = {}
     print "start"
     for t in top_tweets:
         if len(check) == limit:
             break
         else:
-            if check.add(t['text']):
+            if t['text'] not in check:
                 print t['text']
+                check[t['text']] = 1
                 to_return.append(t)
     return to_return
-get_top_tweets(20)
+print get_top_tweets(20)
 def get_all_tweets(limit=20, skip=0):
     db = connect()
     db = db.tweet
