@@ -21,18 +21,32 @@ def connect():
         raise MongoException(e)
 
 
-def get_top_10_tweets():
+def get_top_tweets(limit = 20):
+    db = connect()
+    top_tweets = db.tweet.find().sort('retweet_count', -1)#descending order
+    to_return = []
+    check = set()
+    print "start"
+    for t in top_tweets:
+        print "inside: %s", t['text']
+        if len(check) == limit:
+            break
+        else:
+            if check.add(t['text']):
+                print t['text']
+                to_return.append(t)
+    return to_return
+get_top_tweets(20)
+def get_all_tweets(limit=20, skip=0):
     db = connect()
     db = db.tweet
-    tweets = db.find({})
-    #set limit to ten
-    tweets.limit(10)
-    top_10_tweets = tweets.sort('retweet_count', -1)#descending order
+    tweets = db.find({}).skip(skip).limit(limit)
     to_return = []
-    for t in top_10_tweets:
+    for t in tweets:
         to_return.append(t)
-    return to_return
+    return t
 
-
-
-
+def get_total_tweets():
+    db = connect()
+    db = db.tweets
+    return db.tweets.count()

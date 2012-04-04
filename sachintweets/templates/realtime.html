@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% from 'helpers/tweets.html' import render_table %}
+{% block content %}
+<br/>
+<br/>
+
+
+
+     <h2>All Tweets about sachin </h2>
+     {{ render_table(tweets = tweets) }}
+     
+{% endblock %}

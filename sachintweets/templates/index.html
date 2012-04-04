@@ -1,8 +1,15 @@
 {% extends 'base.html' %}
 {% from 'helpers/tweets.html' import render_table %}
 {% block content %}
-     welcome to sachin tweets.in 
-     Top 10 tweets about Master Blaster with us 
+<br/>
+<br/>
+
+<h1> Welcome to sachintweets.in - A fan made site to world's greatest batsmen.
+</h1>
+<iframe width="940" height="480" 
+src="http://www.youtube.com/embed/0N4pCu-iwl4?rel=0" frameborder="0" allowfullscreen></iframe>
+<br/>
+     <h2>Top 10 tweets about Master Blaster with us </h2>
      {{ render_table(tweets = tweets) }}
      
 {% endblock %}

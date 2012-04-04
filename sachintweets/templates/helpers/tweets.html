@@ -18,3 +18,22 @@
         </table>
     {% endif %}
 {% endmacro %}
+
+{% macro pagination(total, page_no) %}
+    <div class=pagination>
+        <ul class="pager">
+            {% if page_no != 1 %} 
+            <li class="previous">
+                <a href = "{{ url_for('tweets', page_no = page_no -1)}}">
+                &larr; Older </a>
+            </li>
+            {% endif %}
+            {% if page_no != total %}
+                <li class="next">
+                    <a href="{{ url_for('tweets', page_no = page_no + 1) }}/">
+                    Newer &rarr;
+                    </a>
+            {% endif %}
+        </ul>
+    </div>
+{% endmacro %}

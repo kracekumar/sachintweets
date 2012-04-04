@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% from 'helpers/tweets.html' import render_table, pagination %}
+{% block content %}
+<br/>
+<br/>
+
+     <h2>Top 10 tweets about Master Blaster with us </h2>
+     {{ render_table(tweets = tweets) }}
+     {{ pagination(total = total, page_no = page_no) }}
+     
+{% endblock %}
