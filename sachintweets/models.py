@@ -40,7 +40,7 @@ def get_top_tweets(limit = 20):
 def get_all_tweets(limit=20, skip=0):
     db = connect()
     db = db.tweet
-    tweets = db.find({}).sort('retweet_count', -1).skip(skip).limit(limit)
+    tweets = db.find({}).skip(skip).limit(limit)
     to_return = []
     for t in tweets:
         to_return.append(t)
