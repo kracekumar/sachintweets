@@ -11,13 +11,13 @@ COLLECTOR_LOCK_FILE = 'collector.lock'
 
 def check():
     try:
-        with open(COLLECTOR_LOCK_FILE) as f:
+        with open(COLLECTOR_LOCK_FILE, 'r') as f:
             pass
     except:
         system("nohup python2.7 collector.py >> collector.out &")
         print "%s ===started collector.py==="%time.ctime()
     try:
-        with open(RECV_LOCK_FILE) as f:
+        with open(RECV_LOCK_FILE, 'r') as f:
             pass
     except:
         system("nohup python2.7 recv.py >> recv.out &")
