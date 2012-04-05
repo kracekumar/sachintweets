@@ -13,15 +13,15 @@ def check():
     try:
         with open(COLLECTOR_LOCK_FILE, 'r') as f:
             pass
-    except:
-        system("nohup python2.7 collector.py >> collector.out &")
-        print "%s ===started collector.py==="%time.ctime()
+    except IOError:
+        if system("nohup python2.7 collector.py >> collector.out &"):
+            print "%s ===started collector.py==="%time.ctime()
     try:
         with open(RECV_LOCK_FILE, 'r') as f:
             pass
-    except:
-        system("nohup python2.7 recv.py >> recv.out &")
-        print "%s ===started recv.py==="%time.ctime()
+    except IOError:
+        if system("nohup python2.7 recv.py >> recv.out &"):
+            print "%s ===started recv.py==="%time.ctime()
 
 
 if __name__ == "__main__":
