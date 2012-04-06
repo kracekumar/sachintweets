@@ -3,10 +3,15 @@
 {% block content %}
 <br/>
 <br/>
-
-
-
-     <h2>All Tweets about sachin </h2>
-     {{ render_table(tweets = tweets) }}
-     
+     <h2>Real Time  Tweets about sachin </h2>
+     <div class="realtime">
+        <table class="table table-bordered table-striped"> 
+        <thead>
+            <tr>
+                <th> Username </th>
+                <th> Tweet </th>
+                <th> Retweet Count </th>
+            </tr>
+        </thead>
+     </div>
 {% endblock %}

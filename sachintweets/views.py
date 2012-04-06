@@ -34,9 +34,13 @@ def tweets(page_no):
     return render_template('tweets.html', tweets = tweets, total = total, \
                             page_no = page_no)
 
-@app.route('/realtime/')
-def real_time_tweets():
-    """    context = zmq.Context()
+@app.route('/total_tweet/')
+def total():
+    return jsonify(total = get_total_tweets())
+
+@app.route('/realtime/pull/')
+def real_time_tweets_pull():
+    context = zmq.Context()
     socket = context.socket(zmq.SUB)
     socket.connect("tcp://*:6789")
     socket.setsockopt(zmq.SUBSCRIBE, "")
@@ -46,5 +50,7 @@ def real_time_tweets():
         return jsonify(text = d['text'], created_at = d['user']['created_at'],\
                        username = d['user']['name'],
                        retweet_count = d['retweet_count'])
-    """
-    pass
+    
+@app.route('/realtime/')
+def realtime_update():
+    return render_template('realtime.html')

@@ -1,0 +1,24 @@
+<script>
+    setInterval(function get_tweets(){
+        $.getJSON(document.URL + 'pull/', function(data){
+            $('<tr><td>' + data['username'] + '</td>' +
+              '<td>' + data['text'] + '</td>' + '<td>' 
+              + data['retweet_count']).appendTo('.realtime'));
+            
+    };, 5);
+}
+
+</script>
+            <hr/>
+            <a href="http://flask.pocoo.org/"><img
+               src="http://flask.pocoo.org/static/badges/powered-by-flask-s.png"
+                  border="0"
+                     alt="powered by Flask"
+                        title="powered by Flask"></a><br/>
+             Code by Kracekumar<br/>
+            Contact me via <a href="mailto:me@kracekumar.com" class="footer">
+            Email  </a>,
+            <a href="http://twitter.com/kracetheking.com" class="footer"> 
+            Twitter </a>,
+             <a href="http://github.com/kracekumar" class="footer"> Github </a>
+             <hr/>
