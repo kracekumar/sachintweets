@@ -18,5 +18,6 @@ def test_get_top_tweets_negative():
     """
     assert_false(get_top_tweets(limit=-1),[])
 
-
+def test_get_total_tweets():
+    assert_is_instance(get_total_tweets(), int)
     
