@@ -47,5 +47,9 @@ def restart_server():
 def push_to_github():
     local("git push -u origin master")
 
+def deploy():
+    local("git pull")
+    restart_server()
+
 def hello():
     print 'hello, This is test!'
