@@ -10,7 +10,7 @@ def test_get_top_tweets_positive():
     """
         def get_top_tweets(limit = 20):
     """
-    assert_is_instance(get_top_tweets(), [])
+    assert_is_instance(get_top_tweets(), list)
 
 def test_get_top_tweets_negative():
     """
