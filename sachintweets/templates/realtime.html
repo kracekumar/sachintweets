@@ -30,8 +30,9 @@
      </div>
 {% endblock %}
 {% block js %}
-    {% include 'realtime_update.html' %}
+    <script src="{{ url_for('static', filename=mixpanel.js)}}"> </script>
     <script>
     mixpanel.track('realtime');
     </script>
+    {% include 'realtime_update.html' %}
 {% endblock %}
