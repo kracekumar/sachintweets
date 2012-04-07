@@ -31,5 +31,7 @@
 {% endblock %}
 {% block js %}
     {% include 'realtime_update.html' %}
+    <script>
     mixpanel.track('realtime');
+    </script>
 {% endblock %}
