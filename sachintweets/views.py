@@ -50,8 +50,9 @@ def total():
 @app.route('/realtime/pull/')
 def real_time_tweets_pull():
     d = socket.recv() 
-    d = json.loads(d)
-    return jsonify(text = d['text'], created_at = d['user']['created_at'],\
+    if d:
+        d = json.loads(d)
+        return jsonify(text = d['text'], created_at = d['user']['created_at'],\
                        username = d['user']['name'],
                        retweet_count = d['retweet_count'])
     
