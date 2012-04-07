@@ -1,5 +1,6 @@
 <script src="{{ url_for('static', filename='jquery.min.js')}}"></script>
 <script>
+var prev_data = "";
 (function indefinite(){
         setTimeout(function(){
             var request = $.ajax({
@@ -8,13 +9,19 @@
                 });
 
             request.done(function(data){
-                $('.table > tbody:first').prepend('<tr class=tweet><td>' + data['username'] + '</td>' +
-                '<td>' + data['text'] + '</td>' + '<td>' 
-                + data['retweet_count'] + '</td></tr>');
+                if (prev_data !== data)
+                {
+                    prev_data = data;
+                    $('.table > tbody:first').prepend('<tr class=tweet><td>' + data['username'] + '</td>' +
+                    '<td>' + data['text'] + '</td>' + '<td>' 
+                    + data['retweet_count'] + '</td></tr>');
+                
                 /* sleep for 1 sec because previous tweet is prepended */
-                function sleep(){
-                    setTimeout(function() { i =1;}, 1000)};
-                sleep();
+                    function sleep(){
+                        setTimeout(function() { i =1;}, 1000)};
+                    sleep();
+                }
+                indefinite();
                 });
             var error_msg = "Seems like no one is tweeting about Sachin :(";
             request.fail(function(x, t, m) {
@@ -24,7 +31,6 @@
                 $('.msg').html("<span class=label medium label-important>Sorry some thing we did wrong,please try after sometime" +'</span>');
             }
         });
-                indefinite();
 }, 5000);
 })();
 </script>
