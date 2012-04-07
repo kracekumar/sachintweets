@@ -8,7 +8,7 @@
                 });
 
             request.done(function(data){
-                $('<tr class="row"><td>' + data['username'] + '</td>' +
+                $('<tr class="tweet"><td>' + data['username'] + '</td>' +
                 '<td>' + data['text'] + '</td>' + '<td>' 
                 + data['retweet_count'] + '</td></tr>').prependTo('.tweet');
                 indefinite();
