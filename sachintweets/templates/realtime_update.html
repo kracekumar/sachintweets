@@ -13,10 +13,13 @@
                 if (prev_data !== data)
                 {
                     prev_data = data;
-                    $('.msg').html("<span class=label medium label-success> Loaded ... </span>");
-                    $('.table > tbody:first').prepend('<tr class=tweet><td>' + data['username'] + '</td>' +
-                    '<td>' + data['text'] + '</td>' + '<td>' 
-                    + data['retweet_count'] + '</td></tr>');
+                    if (data === true)
+                    {
+                        $('.msg').html("<span class=label medium label-success> Loaded ... </span>");
+                        $('.table > tbody:first').prepend('<tr class=tweet><td>' + data['username'] + '</td>' +
+                        '<td>' + data['text'] + '</td>' + '<td>' 
+                        + data['retweet_count'] + '</td></tr>');
+                    }
                 
                 /* sleep for 1 sec because previous tweet is prepended */
                     function sleep(){
