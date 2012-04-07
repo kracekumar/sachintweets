@@ -4,6 +4,13 @@ from models import get_top_tweets, get_all_tweets, get_total_tweets
 import zmq
 import json
 
+####################### ZMQ for sending real time tweets to client #############
+
+context = zmq.Context()
+socket = context.socket(zmq.SUB)
+socket.connect("tcp://*:6789")
+socket.setsockopt(zmq.SUBSCRIBE, "")
+
 ########################################### helpers ############################
 def stream_template(template_name, **context):
     app.update_template_context(context)
@@ -42,14 +49,9 @@ def total():
 
 @app.route('/realtime/pull/')
 def real_time_tweets_pull():
-    context = zmq.Context()
-    socket = context.socket(zmq.SUB)
-    socket.connect("tcp://*:6789")
-    socket.setsockopt(zmq.SUBSCRIBE, "")
-    while 1:
-        d = socket.recv() 
-        d = json.loads(d)
-        return jsonify(text = d['text'], created_at = d['user']['created_at'],\
+    d = socket.recv() 
+    d = json.loads(d)
+    return jsonify(text = d['text'], created_at = d['user']['created_at'],\
                        username = d['user']['name'],
                        retweet_count = d['retweet_count'])
     
