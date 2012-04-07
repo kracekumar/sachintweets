@@ -8,7 +8,7 @@
     request.done(function(data){
             $('<tr><td>' + data['username'] + '</td>' +
               '<td>' + data['text'] + '</td>' + '<td>' 
-              + data['retweet_count']).appendTo('.realtime');
+              + data['retweet_count']).appendTo('table');
               });
     var msg = "Seems like no one is tweeting about Sachin :(";
     request.fail(function(x, t, m) {
