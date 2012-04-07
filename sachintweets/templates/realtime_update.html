@@ -8,9 +8,9 @@
                 });
 
             request.done(function(data){
-                $('<tr class="tweet"><td>' + data['username'] + '</td>' +
+                $('<tr><td>' + data['username'] + '</td>' +
                 '<td>' + data['text'] + '</td>' + '<td>' 
-                + data['retweet_count'] + '</td></tr>').prependTo('.tweet');
+                + data['retweet_count'] + '</td></tr>').appendTo('.tweet');
                 indefinite();
                 });
             var error_msg = "Seems like no one is tweeting about Sachin :(";
