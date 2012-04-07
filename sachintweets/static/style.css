@@ -19,7 +19,14 @@ body{
     height: 100%;
 
 }
-
+.medium
+{
+    font-size: 18px;
+}
+.large
+{
+    font-size: 20px;
+}
 .content
 {
     background-color: white;

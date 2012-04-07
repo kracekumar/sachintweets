@@ -1,23 +1,29 @@
 <script src="{{ url_for('static', filename='jquery.min.js')}}"></script>
 <script>
-   var request = $.ajax({
-            type: "GET",
-            url: document.URL + 'pull/',
-            });
+(function indefinite(){
+        setTimeout(function(){
+            var request = $.ajax({
+                type: "GET",
+                url: document.URL + 'pull/',
+                });
 
-    request.done(function(data){
-            $('<tr><td>' + data['username'] + '</td>' +
-              '<td>' + data['text'] + '</td>' + '<td>' 
-              + data['retweet_count']).appendTo('table');
-              });
-    var msg = "Seems like no one is tweeting about Sachin :(";
-    request.fail(function(x, t, m) {
-        if(t === "timeout"){
-            $('.msg').html(msg);
+            request.done(function(data){
+                $('<tr><td>' + data['username'] + '</td>' +
+                '<td>' + data['text'] + '</td>' + '<td>' 
+                + data['retweet_count'] + '</td>').appendTo('table');
+                indefinite();
+                });
+            var error_msg = "Seems like no one is tweeting about Sachin :(";
+            request.fail(function(x, t, m) {
+            if(t === "timeout"){
+                var msg = "<span class=label  medium label-important>";
+                $('.msg').html(msg + error_msg + '</span>');
             }else{
-            $('.msg').html(m);
+                $('.msg').html(msg + "Sorry some thing we did wrong,please try after sometime" +'</span>');
             }
         });
+}, 5000);
+})();
 </script>
 
 
