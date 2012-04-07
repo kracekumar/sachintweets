@@ -64,12 +64,12 @@ def realtime_update():
 @app.errorhandler(500)
 def internal_server(e):
     with open('server_error.log', 'a') as f:
-        f.writelines(e.message)
+        f.writelines(e.message + "\n")
     return "Internal server error"
 
 
 @app.errorhandler(502)
 def internal_server(e):
     with open('server_error.log', 'a') as f:
-        f.writelines(e.message)
+        f.writelines(e.message + "\n")
     return "Bad Gateway request"
