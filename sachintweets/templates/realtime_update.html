@@ -1,8 +1,9 @@
 <script src="{{ url_for('static', filename='jquery.min.js')}}"></script>
 <script>
-var prev_data = "";
 (function indefinite(){
+        var prev_data = "";
         setTimeout(function(){
+                $('.msg').html("<span class=label medium label-success> Loading ... </span>");
             var request = $.ajax({
                 type: "GET",
                 url: document.URL + 'pull/',
@@ -12,6 +13,7 @@ var prev_data = "";
                 if (prev_data !== data)
                 {
                     prev_data = data;
+                    $('.msg').html("<span class=label medium label-success> Loaded ... </span>");
                     $('.table > tbody:first').prepend('<tr class=tweet><td>' + data['username'] + '</td>' +
                     '<td>' + data['text'] + '</td>' + '<td>' 
                     + data['retweet_count'] + '</td></tr>');
