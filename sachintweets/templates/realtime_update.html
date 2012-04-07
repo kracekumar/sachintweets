@@ -8,18 +8,17 @@
                 });
 
             request.done(function(data){
-                $('<tr><td>' + data['username'] + '</td>' +
+                $('<tr class="row"><td>' + data['username'] + '</td>' +
                 '<td>' + data['text'] + '</td>' + '<td>' 
-                + data['retweet_count'] + '</td>').appendTo('table');
+                + data['retweet_count'] + '</td>').prependTo('.row');
                 indefinite();
                 });
             var error_msg = "Seems like no one is tweeting about Sachin :(";
             request.fail(function(x, t, m) {
             if(t === "timeout"){
-                var msg = "<span class=label  medium label-important>";
-                $('.msg').html(msg + error_msg + '</span>');
+                $('.msg').html("<span class=label medium label-important> Seems like no one is tweeting about Sachin Tendulkar now :( </span>");
             }else{
-                $('.msg').html(msg + "Sorry some thing we did wrong,please try after sometime" +'</span>');
+                $('.msg').html("<span class=label medium label-important>Sorry some thing we did wrong,please try after sometime" +'</span>');
             }
         });
 }, 5000);
