@@ -25,11 +25,8 @@ var prev_data = "";
                 });
             var error_msg = "Seems like no one is tweeting about Sachin :(";
             request.fail(function(x, t, m) {
-            if(t === "timeout"){
                 $('.msg').html("<span class=label medium label-important> Seems like no one is tweeting about Sachin Tendulkar now :( </span>");
-            }else{
-                $('.msg').html("<span class=label medium label-important>Sorry some thing we did wrong,please try after sometime" +'</span>');
-            }
+                indefinite();
         });
 }, 5000);
 })();
