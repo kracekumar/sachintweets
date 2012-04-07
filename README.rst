@@ -42,6 +42,6 @@ BSD STYLE
 
 Contact me
 ----------
-`Twitter @kracetheking - <http://www.twitter.com/kracetheking>`
+`Twitter @kracetheking - <http://www.twitter.com/kracetheking>`_.
 
 
