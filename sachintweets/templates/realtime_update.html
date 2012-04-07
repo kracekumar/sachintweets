@@ -15,7 +15,6 @@
                 function sleep(){
                     setTimeout(function() { i =1;}, 1000)};
                 sleep();
-                indefinite();
                 });
             var error_msg = "Seems like no one is tweeting about Sachin :(";
             request.fail(function(x, t, m) {
@@ -24,6 +23,7 @@
             }else{
                 $('.msg').html("<span class=label medium label-important>Sorry some thing we did wrong,please try after sometime" +'</span>');
             }
+                indefinite();
         });
 }, 5000);
 })();
