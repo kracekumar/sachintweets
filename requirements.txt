@@ -4,3 +4,4 @@ pyzmq
 pymongo
 requests
 logbook
+fabric
