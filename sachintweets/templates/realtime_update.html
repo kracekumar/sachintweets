@@ -1,0 +1,37 @@
+<script src="{{ url_for('static', filename='jquery.min.js')}}"></script>
+<script>
+   var request = $.ajax({
+            type: "GET",
+            url: document.URL + 'pull/',
+            });
+
+    request.done(function(data){
+            $('<tr><td>' + data['username'] + '</td>' +
+              '<td>' + data['text'] + '</td>' + '<td>' 
+              + data['retweet_count']).appendTo('.realtime');
+              });
+    var msg = "Seems like no one is tweeting about Sachin :(";
+    request.fail(function(x, t, m) {
+        if(t === "timeout"){
+            $('.msg').html(msg);
+            }else{
+            $('.msg').html(m);
+            }
+        });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
