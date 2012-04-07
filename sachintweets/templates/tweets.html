@@ -9,3 +9,6 @@
      {{ pagination(total = total, page_no = page_no) }}
      
 {% endblock %}
+{% block js %}
+    mixpanel.track("tweets");
+{% endblock %}

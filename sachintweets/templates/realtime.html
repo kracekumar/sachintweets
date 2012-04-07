@@ -3,7 +3,7 @@
 {% block content %}
 <br/>
 <br/>
-     <h2>Real Time  Tweets about sachin </h2>
+     <h2>Real Time  Tweets about Sachin Tendulkar </h2>
      <div class=msg>
      <span class="label medium label-success">
         Currently we are pulling live tweets about Sachin Tendulkar for you, please wait :)
@@ -16,7 +16,7 @@
             <tr>
                 <th> Username </th>
                 <th> Tweet </th>
-                <th> Retweet Count </th>
+                <th> Retweeted </th>
             </tr>
         </thead>
             <div class="t">
@@ -31,4 +31,5 @@
 {% endblock %}
 {% block js %}
     {% include 'realtime_update.html' %}
+    mixpanel.track('realtime');
 {% endblock %}
