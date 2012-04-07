@@ -10,7 +10,7 @@
             request.done(function(data){
                 $('<tr class=tweet><td>' + data['username'] + '</td>' +
                 '<td>' + data['text'] + '</td>' + '<td>' 
-                + data['retweet_count'] + '</td></tr>').appendTo('.t');
+                + data['retweet_count'] + '</td></tr>').prepend('.tweet');
                 /* sleep for 1 sec because previous tweet is prepended */
                 function sleep(){
                     setTimeout(function() { i =1;}, 1000)};
