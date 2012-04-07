@@ -8,7 +8,7 @@
                 });
 
             request.done(function(data){
-                $('.tweet').prepend('<tr class=tweet><td>' + data['username'] + '</td>' +
+                $('.table > tbody:first').prepend('<tr class=tweet><td>' + data['username'] + '</td>' +
                 '<td>' + data['text'] + '</td>' + '<td>' 
                 + data['retweet_count'] + '</td></tr>');
                 /* sleep for 1 sec because previous tweet is prepended */
