@@ -1,7 +1,7 @@
 <script src="{{ url_for('static', filename='jquery.min.js')}}"></script>
 <script>
 (function indefinite(){
-        var prev_data = "";
+        var prev_data = {'text': 'default'};
         setTimeout(function(){
                 $('.msg').html("<span class=label medium label-success> Loading ... </span>");
             var request = $.ajax({
@@ -10,11 +10,11 @@
                 });
 
             request.done(function(data){
-                if (prev_data !== data)
+                if (prev_data['text'] !== data['text'])
                 {
                     
-                    prev_data = data;
-                    if (data)
+                    prev_data['text'] = data['text'];
+                    if (typeof data !== "undefined")
                     {
                         $('.msg').html("<span class=label medium label-success> Loaded ... </span>");
                         $('.table > tbody:first').prepend('<tr class=tweet><td>' + data['username'] + '</td>' +
