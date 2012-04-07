@@ -59,3 +59,15 @@ def real_time_tweets_pull():
 @app.route('/realtime/')
 def realtime_update():
     return render_template('realtime.html')
+
+########################################## Error Handling ######################
+@app.errorhandler(500)
+def internal_server(e):
+    with open('server_error.log', 'a') as f:
+        f.writelines(e.message)
+
+
+@app.errorhandler(502)
+def internal_server(e):
+    with open('server_error.log', 'a') as f:
+        f.writelines(e.message)
