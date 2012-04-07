@@ -34,6 +34,8 @@ Install
 
 11. few log files and output files will be created at run time.
 
+12. `fab start_server` to start the web server or `python runserver.py` from 
+    project root directory
 LICENSE
 -------
 BSD STYLE
