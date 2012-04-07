@@ -10,7 +10,7 @@
             request.done(function(data){
                 $('<tr><td>' + data['username'] + '</td>' +
                 '<td>' + data['text'] + '</td>' + '<td>' 
-                + data['retweet_count'] + '</td></tr>').appendTo('.tweet');
+                + data['retweet_count'] + '</td></tr>').appendTo('thead');
                 indefinite();
                 });
             var error_msg = "Seems like no one is tweeting about Sachin :(";
