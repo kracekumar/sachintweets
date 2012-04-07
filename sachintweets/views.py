@@ -60,6 +60,10 @@ def real_time_tweets_pull():
 def realtime_update():
     return render_template('realtime.html')
 
+@app.route('/suggestions/')
+def suggestions():
+    return render_template('comments.html')
+
 ########################################## Error Handling ######################
 @app.errorhandler(500)
 def internal_server(e):
