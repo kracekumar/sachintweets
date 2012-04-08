@@ -46,7 +46,7 @@ if __name__ == '__main__':
             log_handler.write('keyboard interrupt\n')
         finally:
             try:
-                with open(LOCK_FILE) as f:
+                with open(LOCK_FILE, 'r') as f:
                     pass
                 remove(LOCK_FILE)
             except:

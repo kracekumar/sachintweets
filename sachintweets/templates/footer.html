@@ -1,5 +1,26 @@
-<script type="text/javascript">
+<script src="{{ url_for('static', filename='jquery.min.js')}}"></script>
+<script>
+(function indefinite(){
+        setTimeout(function(){
+            var request = $.ajax({
+                type: "GET",
+                url: 'http://www.sachintweets.in/total_tweet/',
+                });
 
+            request.done(function(data){
+                    if (typeof data !== "undefined")
+                    {
+                        $('.total_tweets').html(data['total'] + " tweets so far we have");
+                    }
+                
+                indefinite();
+                });
+        });
+}, 5000);
+})();
+</script>
+
+<script type="text/javascript">
   var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-30676028-1']);
       _gaq.push(['_trackPageview']);
