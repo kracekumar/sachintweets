@@ -11,9 +11,9 @@
                     if (typeof data !== "undefined")
                     {
                         $('.total_tweets').html(data['total'] + " tweets so far we have");
+                        indefinite();
                     }
                 
-                indefinite();
                 });
         });
 }, 5000)
