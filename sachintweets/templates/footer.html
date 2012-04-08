@@ -10,7 +10,7 @@
             request.done(function(data){
                     if (typeof data !== "undefined")
                     {
-                        $('.total_tweets').html("<a href=#>+ +data['total'] + " tweets so far we have </a>" );
+                        $('.total_tweets').html("<a href=#>"+ +data['total'] + " tweets so far we have </a>" );
                         indefinite();
                     }
                 
