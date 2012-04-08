@@ -38,7 +38,7 @@ def store_live_tweets():
                 tweet.insert({'text': d['text'],\
                 'location': d['user']['location'], \
                 'uid': d['user']['id'], 'tid': d['id'],\
-                'created_at': d['user']['created_at'],\
+                'created_at': d['created_at'],\
                 'username': d['user']['name'],\
                 'retweet_count': d['retweet_count'],\
                 'screen_name': d['user']['screen_name'],\
